@@ -55,7 +55,7 @@ public class ListInsertion {
 		userInput = new Scanner(System.in);
 		System.out.println("-Enter element-");
 		element = userInput.nextLine();
-		System.out.println("Enter number between 1-5");
+		System.out.println("Enter number between 0-4");
 		position = userInput.nextInt();
 		boolean isNumber = objListInsertion.isNumberInRange(position); 
 		if(!isNumber) {
@@ -64,7 +64,7 @@ public class ListInsertion {
 		}
 		else {
 			elementReturn = objListInsertion.checkElementType(element);
-			objListInsertion.insertIntoList(elementReturn,position-1);
+			objListInsertion.insertIntoList(elementReturn,position);
 		}
 	}//getUSerInput
 	private Object checkElementType(String Element) {
@@ -104,8 +104,11 @@ public class ListInsertion {
 	        	inputString = Element.toUpperCase();
 	           return inputString;
 	        }
+		}else {
+			inputString = Element.toUpperCase();
+	           return inputString;
 		}
-		return "sorry";
+		
 	}//checkElementType
 	public static boolean isInteger(String s) {
 		try{
