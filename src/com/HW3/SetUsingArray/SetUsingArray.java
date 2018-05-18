@@ -1,9 +1,7 @@
 package com.HW3.SetUsingArray;
-
 import java.util.Collections;
 import java.util.Scanner;
 import com.sun.xml.internal.bind.v2.runtime.unmarshaller.XsiNilLoader.Array;
-
 public class SetUsingArray {
 	private static Object myArray[] = new Object[10];
 	private static Scanner userIn;
@@ -18,8 +16,9 @@ public class SetUsingArray {
 
 	private static void displayArray(Object[] myArray) {
 			for (int i = 0; i < myArray.length && myArray[i] !=null; i++) {
-				System.out.println(" " + myArray[i].toString());
+				System.out.print(" " + myArray[i].toString());
 			}
+			System.out.println();
 	}// displayArray
 
 	private static boolean isArrayEmpty(Object[] myArray) {
@@ -43,7 +42,7 @@ public class SetUsingArray {
 			break;
 		case 2:// Removing
 			System.out.println("---Removing---");
-
+			remove();
 			break;
 		case 3:// Displaying
 			System.out.println("---Displaying---");
@@ -60,6 +59,27 @@ public class SetUsingArray {
 			break;
 		}
 	}// getUSerInput
+	private static void remove() {
+		int flag = 0;
+		System.out.println("Enter what you would like to remove:");
+		Object in = (Object)userIn.nextLine();
+		for (int i = 0; i < myArray.length; i++) {
+			if (myArray[i]!=null && myArray[i].equals(in)) {
+				System.out.println("remvoing");
+				int removeIndex = i;
+				for(int j = removeIndex; j < myArray.length -1; j++){
+					myArray[j] = myArray[j + 1];
+			      }
+				flag =1;
+				displayArray(myArray);
+				break;
+			}
+		}
+		if( flag ==0) {
+			System.out.println("Sorry, Not found try again");
+			getUserInput();
+		}
+	}//remove
 
 	private static void insert() {
 		int flag = 0;
