@@ -1,11 +1,16 @@
 package com.HW3.SetUsingArray;
 import java.util.Collections;
-import java.util.Scanner;
+import java.util.Scanner; 
 import com.sun.xml.internal.bind.v2.runtime.unmarshaller.XsiNilLoader.Array;
-public class SetUsingArray {
-	private static Object myArray[] = new Object[10];
+public class SetUsingArray { 
+	public int add(int x, int y) {
+		return x+y;
+	}
+	public static Object myArray[] = new Object[10];
 	private static Scanner userIn;
-	private static int choice;
+	private static int choice; 
+	
+	public static boolean testInsertFlag; 
 
 	public static void main(String[] args) {
 		displayArray(myArray);
@@ -21,7 +26,7 @@ public class SetUsingArray {
 			System.out.println();
 	}// displayArray
 
-	private static boolean isArrayEmpty(Object[] myArray) {
+	public static boolean isArrayEmpty(Object[] myArray) {
 			if (myArray[myArray.length-1] != null) {
 				return false;
 			}
@@ -65,7 +70,6 @@ public class SetUsingArray {
 		Object in = (Object)userIn.nextLine();
 		for (int i = 0; i < myArray.length; i++) {
 			if (myArray[i]!=null && myArray[i].equals(in)) {
-				System.out.println("remvoing");
 				int removeIndex = i;
 				for(int j = removeIndex; j < myArray.length -1; j++){
 					myArray[j] = myArray[j + 1];
@@ -81,10 +85,12 @@ public class SetUsingArray {
 		}
 	}//remove
 
-	private static void insert() {
+	public static void insert() {
 		int flag = 0;
+		 testInsertFlag = false;
 		if (!isArrayEmpty(myArray)) {
 			System.out.println("Array full");
+			testInsertFlag = true;
 			getUserInput();
 		} else {
 			System.out.println("Enter what you would like to add:");
@@ -95,7 +101,7 @@ public class SetUsingArray {
 					getUserInput();
 					flag = 1;
 					break;
-				}
+				} 
 			}
 			if (flag == 0) {
 				for (int j = 0; j < myArray.length; j++) {
