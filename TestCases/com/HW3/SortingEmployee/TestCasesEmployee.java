@@ -6,10 +6,11 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 class TestCasesEmployee {
-
-	@BeforeEach
-	void setUp() throws Exception {
+	@Before
+	public void initialize() {
+		
 	}
+
 
 	@Test
 	void test() {
